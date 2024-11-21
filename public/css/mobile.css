@@ -1,0 +1,43 @@
+* {
+  --main-color: #753837;
+  --secondary-color: #A43B3F;
+  --third-color: #8D715B;
+  --fourth-color: #D4B193;
+  --fifth-color: #483F36;
+}
+
+.mobile_grid_container {
+    display: grid;
+    grid-template-columns: repeat(24, 100%);
+    will-change: transform;
+    align-content: center;
+    overflow-x: auto;
+    scroll-snap-coordinate: 0 0;
+    scroll-snap-points-x: repeat(100%);
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    position: relative;
+  }
+
+  .mobile_section {
+    height: 100vh;
+    scroll-snap-align: start;
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+  }
+
+  .quoteText {
+    font-size: 1.5em;
+    max-width: 15ch;
+  }
+
+  .mobile_luke_text {
+    font-size: 10em;
+    animation: zoomIn;
+    animation-duration: 2s;
+    
+  }
