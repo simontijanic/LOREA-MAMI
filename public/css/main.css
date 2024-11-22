@@ -88,8 +88,11 @@
 .cant_Open {
     background-color: rgb(150, 150, 150);
     color:  rgb(235, 235, 235);
+    cursor: not-allowed; /* Change cursor to indicate it's not clickable */
 }
-
+.cant_Open:hover {
+    background-color: #d3d3d3; /* Prevent hover effect */
+}
 .daily-gift {
     background-color: var(--fourth-color);
     animation: jackInT
