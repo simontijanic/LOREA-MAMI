@@ -78,41 +78,41 @@ class AdventCalendar {
         localStorage.setItem(`openedDay_${day}`, day);
     }
 
-createDesktopLuke(day) {
-    const gridLuke = document.createElement('div');
-    gridLuke.className = 'grid_luke';
-    gridLuke.id = day;
+    createDesktopLuke(day) {
+        const gridLuke = document.createElement('div');
+        gridLuke.className = 'grid_luke';
+        gridLuke.id = day;
 
-    const lukeText = document.createElement('p');
-    lukeText.textContent = day;
-    lukeText.className = 'luke_tekst';
-    lukeText.id = day;
+        const lukeText = document.createElement('p');
+        lukeText.textContent = day;
+        lukeText.className = 'luke_tekst';
+        lukeText.id = day;
 
-    gridLuke.appendChild(lukeText);
+        gridLuke.appendChild(lukeText);
 
-    if (day === this.currentDay) {
-        gridLuke.classList.add('daily-gift'); 
-        gridLuke.classList.add('bowtie');
-        gridLuke.addEventListener('click', () => this.handleClick(day));
-    } else if (this.isDayOpened(day)) {
-        gridLuke.classList.add('opened');
-        gridLuke.addEventListener('click', () => this.handleClick(day));
-    } else if (day < this.currentDay) {
-        gridLuke.classList.add('can_Open'); 
-        gridLuke.addEventListener('click', () => this.handleClick(day));
-    } else {
-        // Inaccessible future days
-        gridLuke.classList.add('cant_Open');
-        gridLuke.addEventListener('click', (e) => {
-            e.stopPropagation(); // Prevent any default behavior
-           // alert('This day is not accessible yet!');
-        });
+        if (day === this.currentDay) {
+            gridLuke.classList.add('daily-gift'); 
+            gridLuke.classList.add('bowtie');
+            gridLuke.addEventListener('click', () => this.handleClick(day));
+        } else if (this.isDayOpened(day)) {
+            gridLuke.classList.add('opened');
+            gridLuke.addEventListener('click', () => this.handleClick(day));
+        } else if (day < this.currentDay) {
+            gridLuke.classList.add('can_Open'); 
+            gridLuke.addEventListener('click', () => this.handleClick(day));
+        } else {
+            // Inaccessible future days
+            gridLuke.classList.add('cant_Open');
+            gridLuke.addEventListener('click', (e) => {
+                e.stopPropagation(); // Prevent any default behavior
+            // alert('This day is not accessible yet!');
+            });
+        }
+
+        if (this.desktopGrid) {
+            this.desktopGrid.appendChild(gridLuke);
+        }
     }
-
-    if (this.desktopGrid) {
-        this.desktopGrid.appendChild(gridLuke);
-    }
-}
 
     createLogoClick() {
         if (this.logo && !this.isMobile) {

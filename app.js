@@ -10,11 +10,7 @@ app.use(express.static(__dirname + '/public/'));
 app.use(express.urlencoded({extended:true}));
 app.use(express.json());
 app.set('views', path.join(__dirname, 'views'));
-app.use(express.static('public', {
-    index: false, // Prevent directory listing
-    dotfiles: 'ignore', // Ignore hidden files
-    extensions: ['html', 'htm'], // Allow file extensions
-}));
+
 
 
 app.use(routes)

@@ -17,6 +17,8 @@
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
     position: relative;
+    
+    
   }
 
   .mobile_section {
@@ -33,11 +35,13 @@
   .quoteText {
     font-size: 1.5em;
     max-width: 15ch;
+
   }
 
   .mobile_luke_text {
     font-size: 10em;
     animation: zoomIn;
     animation-duration: 2s;
+    
     
   }
