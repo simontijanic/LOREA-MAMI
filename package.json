@@ -11,8 +11,10 @@
   "dependencies": {
     "animate.css": "^4.1.1",
     "browser-detect": "^0.2.28",
+    "dotenv": "^16.4.5",
     "ejs": "^3.1.10",
     "express": "^4.21.1",
+    "mongoose": "^8.8.2",
     "path": "^0.12.7"
   }
 }

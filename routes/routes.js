@@ -1,6 +1,7 @@
 const express = require(`express`);
 const router = express.Router();
 const homeController = require('../controller/homeController.js');
+const formController = require('../controller/formController.js');
 
 const { getAccessibleDays, serveCalendarDay } = require('../controller/calendarController');
 
@@ -9,5 +10,9 @@ router.get('/luker/:day', serveCalendarDay); // Serves calendar content for a sp
 
 router.get('/', homeController);
 
+router.post('/luker/:day', (req, res) => {
+    const form = new formController(); 
+    form.postForm(req, res);
+});
 
 module.exports = router;
