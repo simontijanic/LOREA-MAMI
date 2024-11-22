@@ -5,8 +5,8 @@ const formController = require('../controller/formController.js');
 
 const { getAccessibleDays, serveCalendarDay } = require('../controller/calendarController');
 
-router.get('/api/accessible-days', getAccessibleDays); // Returns accessible days
-router.get('/luker/:day', serveCalendarDay); // Serves calendar content for a specific day
+router.get('/api/accessible-days', getAccessibleDays); 
+router.get('/luker/:day', serveCalendarDay); 
 
 router.get('/', homeController);
 
@@ -14,5 +14,6 @@ router.post('/luker/:day', (req, res) => {
     const form = new formController(); 
     form.postForm(req, res);
 });
+
 
 module.exports = router;
