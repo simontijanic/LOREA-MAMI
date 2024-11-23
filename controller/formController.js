@@ -38,6 +38,30 @@
             console.log("An error occurred. Please check your email format and ensure your answer has more than 5 characters")
             }
         }
+        async getSubmissions(req, res) {
+            try {
+                const data = await this.formModel.aggregate([
+                    {
+                        $group: {
+                            _id: "$date",
+                            count: { $sum: 1 },
+                        },
+                    },
+                    { $sort: { _id: 1 } }, 
+                ]);
+
+               
+                const formattedData = Array.from({ length: 24 }, (_, i) => ({
+                    day: i + 1,
+                    count: data.find((d) => d._id === i + 1)?.count || 0,
+                }));
+
+                res.json(formattedData);
+            } catch (err) {
+                console.error("Error fetching submission data:", err);
+                res.status(500).send("Server error");
+            }
+        }
     }
 
     module.exports = Form; 

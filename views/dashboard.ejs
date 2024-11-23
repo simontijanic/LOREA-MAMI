@@ -1,13 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Admin Dashboard</title>
-</head>
-<body>
-  <h2>Welcome to the Admin Dashboard!</h2>
-  <p>Only accessible by admins.</p>
-  <a href="/logout">Logout</a>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="/css/dashboard.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="/javascript/chart.js" defer></script>
+  </head>
+  <body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <h2>AdminBLK</h2>
+      <ul>
+        <li class="active"><a href="#">Dashboard</a></li>
+        <li><a href="#">Widgets</a></li>
+        <li><a href="#">Layout Options</a></li>
+        <li><a href="#">Charts</a></li>
+        <li><a href="#">Forms</a></li>
+      </ul>
+    </div>
+
+    <!-- Main Content -->
+    <div class="content">
+      <!-- Header -->
+      <header>
+        <h1>Dashboard</h1>
+        <span>Welcome, User</span>
+        <a href="/logout" class="logout-link">Logout</a>
+      </header>
+
+      <!-- Stats Section -->
+      <div class="stats">
+        <div class="card">CPU Traffic</div>
+        <div class="card">Likes</div>
+        <div class="card">Sales</div>
+        <div class="card">New Members</div>
+      </div>
+
+      <!-- Chart Section -->
+      <div class="chart">
+        <h2>Monthly Recap Report</h2>
+        <canvas id="submissionsChart" width="400" height="200"></canvas>
+      </div>
+
+      <!-- Additional Cards -->
+      <div class="extra-cards">
+        <div class="extra-card">Inventory</div>
+        <div class="extra-card">Mentions</div>
+        <div class="extra-card">Downloads</div>
+      </div>
+    </div>
+  </body>
 </html>
