@@ -1,17 +1,31 @@
 const express = require('express');
 const router = express.Router();
 const administratorHandler = require('../handlers/administratorHandler.js');
+const formModel = require('../model/formModel.js');
 
-// Route for GET request to '/restricted'
 router.get('/restricted', (req, res) => {
-    res.render('restricted', { message: req.query.message });  // Pass message through query params
+    res.render('restricted', { message: req.query.message });
 });
   
-// Route for POST request to '/restricted'
-router.post('/restricted', administratorHandler.loginAdmin);  // This should handle the login
+router.post('/restricted', administratorHandler.loginAdmin);
   
 router.get('/dashboard', administratorHandler.ensureAuthenticated, (req, res) => { 
-   res.render('dashboard');  // The page after successful login
+    res.render('dashboard', { page: 'dashboard' });
+});
+
+router.get('/dashboard/:number', administratorHandler.ensureAuthenticated, async (req, res) => {
+    const lukeNumber = parseInt(req.params.number, 10);
+    try {
+        const submissions = await formModel.find({ date: lukeNumber });
+        res.render('dashboard-luke', {
+            number: lukeNumber,
+            submissions: submissions,
+            page: `luke-${lukeNumber}`
+        });
+    } catch (err) {
+        console.error(err);
+        res.status(500).send('Error loading data');
+    }
 });
   
 router.get('/logout', administratorHandler.logoutAdmin);  

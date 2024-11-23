@@ -1,14 +1,12 @@
-// Fetch chart data from the API
 fetch("/api/submissions")
   .then((response) => response.json())
   .then((data) => {
     const labels = data.map((item) => `Day ${item.day}`);
     const counts = data.map((item) => item.count);
 
-    // Render the chart
     const ctx = document.getElementById("submissionsChart").getContext("2d");
     new Chart(ctx, {
-      type: "bar",
+      type: "line",
       data: {
         labels: labels,
         datasets: [

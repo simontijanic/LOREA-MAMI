@@ -4,7 +4,7 @@ const browser = require(`browser-detect`)
 const path = require(`path`)
 const env = require('dotenv').config();
 const session = require('express-session');
-const mongoose = require('mongoose'); // Import mongoose
+const mongoose = require('mongoose');
 
 const routes = require('./routes/routes.js');
 const adminRoutes = require(`./routes/adminRoutes.js`)
@@ -24,7 +24,7 @@ app.use(session({
     secret: process.env.SECRET,
     resave: false,
     saveUninitialized: false,
-    cookie: { secure: false } // For development. Set to true for HTTPS in production
+    cookie: { secure: false }
   }));
 
 app.use(routes)

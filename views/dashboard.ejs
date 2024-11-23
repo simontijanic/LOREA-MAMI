@@ -9,46 +9,30 @@
     <script src="/javascript/chart.js" defer></script>
   </head>
   <body>
-    <!-- Sidebar -->
     <div class="sidebar">
       <h2>AdminBLK</h2>
       <ul>
-        <li class="active"><a href="#">Dashboard</a></li>
-        <li><a href="#">Widgets</a></li>
-        <li><a href="#">Layout Options</a></li>
-        <li><a href="#">Charts</a></li>
-        <li><a href="#">Forms</a></li>
+          <li class="<%= page === 'dashboard' ? 'active' : '' %>">
+              <a href="/dashboard">Dashboard</a>
+          </li>
+          <% for (let i = 1; i <= 24; i++) { %>
+              <li class="<%= page === 'luke-' + i ? 'active' : '' %>">
+                  <a href="/dashboard/<%= i %>">Luke <%= i %></a>
+              </li>
+          <% } %>
       </ul>
-    </div>
+  </div>
 
-    <!-- Main Content -->
     <div class="content">
-      <!-- Header -->
       <header>
         <h1>Dashboard</h1>
-        <span>Welcome, User</span>
+        <span>Velkommen, bruker</span>
         <a href="/logout" class="logout-link">Logout</a>
       </header>
 
-      <!-- Stats Section -->
-      <div class="stats">
-        <div class="card">CPU Traffic</div>
-        <div class="card">Likes</div>
-        <div class="card">Sales</div>
-        <div class="card">New Members</div>
-      </div>
-
-      <!-- Chart Section -->
       <div class="chart">
-        <h2>Monthly Recap Report</h2>
+        <h2>Månedlig Innlevering Report</h2>
         <canvas id="submissionsChart" width="400" height="200"></canvas>
-      </div>
-
-      <!-- Additional Cards -->
-      <div class="extra-cards">
-        <div class="extra-card">Inventory</div>
-        <div class="extra-card">Mentions</div>
-        <div class="extra-card">Downloads</div>
       </div>
     </div>
   </body>

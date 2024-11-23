@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Luke <%= number %></title>
+    <link rel="stylesheet" href="/css/dashboard.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="/javascript/chart.js" defer></script>
+</head>
+<body>
+    <div class="sidebar">
+        <h2>AdminBLK</h2>
+        <ul>
+            <li class="<%= page === 'dashboard' ? 'active' : '' %>">
+                <a href="/dashboard">Dashboard</a>
+            </li>
+            <% for (let i = 1; i <= 24; i++) { %>
+                <li class="<%= page === 'luke-' + i ? 'active' : '' %>">
+                    <a href="/dashboard/<%= i %>">Luke <%= i %></a>
+                </li>
+            <% } %>
+        </ul>
+    </div>
+
+    <div class="content">
+        <div class="luke-data">
+            <h2>Submissions for Luke <%= number %></h2>
+            <% if (submissions.length > 0) { %>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Email</th>
+                            <th>Answer</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% submissions.forEach(submission => { %>
+                            <tr>
+                                <td><%= submission.epost %></td>
+                                <td><%= submission.svar %></td>
+                            </tr>
+                        <% }); %>
+                    </tbody>
+                </table>
+            <% } else { %>
+                <p>No submissions found for Luke <%= number %>.</p>
+            <% } %>
+        </div>
+    </div>
+</body>
+</html>
