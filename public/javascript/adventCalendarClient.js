@@ -101,10 +101,9 @@ class AdventCalendar {
             gridLuke.classList.add('can_Open'); 
             gridLuke.addEventListener('click', () => this.handleClick(day));
         } else {
-            // Inaccessible future days
             gridLuke.classList.add('cant_Open');
             gridLuke.addEventListener('click', (e) => {
-                e.stopPropagation(); // Prevent any default behavior
+                e.stopPropagation();
             // alert('This day is not accessible yet!');
             });
         }
@@ -125,7 +124,6 @@ class AdventCalendar {
         }
     }
     
-    // Create a calendar day for the mobile view
     createMobileLuke(day) {
         const mobileSection = document.createElement('section');
         mobileSection.className = 'mobile_section';
@@ -172,18 +170,14 @@ class AdventCalendar {
     }
     
 
-    // Handle click event to open a day
     handleClick(day) {
-        // Save the day as opened when clicked
         this.saveOpenedDay(day);
 
-        // Redirect to the specific day
         const href = `/luker/${day}`;
         window.location.href = href;
     }
 }
 
-// Wait for the DOM to be loaded before initializing the calendar
 document.addEventListener('DOMContentLoaded', () => {
     const isMobile = window.isMobile
     new AdventCalendar('.grid_container', '.mobile_grid_container', isMobile);

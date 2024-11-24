@@ -1,17 +1,15 @@
-/* Reset styles */
-  body, h1, h2, ul, li, p {
+body, h1, h2, ul, li, p {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-  }
+}
   
-  body {
+body {
     font-family: Arial, sans-serif;
     display: flex;
     height: 100vh;
   }
   
-  /* Sidebar */
   .sidebar {
     width: 240px;
     background-color: #343a40;
@@ -209,18 +207,49 @@ table td:last-child::after {
 .luke-data {
     margin-top: 20px;
 }
+
+#winner-section {
+    margin-bottom: 20px;
+}
+
+#winner-section h3 {
+    display: inline;
+    margin-right: 10px;
+}
+
+#winner-section button {
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-size: 14px;
+    cursor: pointer;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+#winner-section button:hover {
+    background-color: #218838;
+    transform: translateY(-2px);
+}
+
+#winner-section button:active {
+    background-color: #1e7e34;
+    transform: translateY(0);
+}
   
-  /* Responsive Design */
-  @media (max-width: 768px) {
+
+@media (max-width: 768px) {
     .stats,
     .extra-cards {
       grid-template-columns: repeat(2, 1fr);
     }
-  }
+}
   
-  @media (max-width: 480px) {
+@media (max-width: 480px) {
     .stats,
     .extra-cards {
       grid-template-columns: 1fr;
     }
-  }
+}

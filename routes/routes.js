@@ -13,6 +13,16 @@ const formController = new Form();
 
 router.get("/api/submissions", administratorHandler.ensureAuthenticated, (req, res) => formController.getSubmissions(req, res));
 
+router.delete('/api/submissions/:id', administratorHandler.ensureAuthenticated, async (req, res) => {
+    try {
+        const { id } = req.params;
+        await formController.deleteSubmission(id);
+        res.status(200).json({ message: 'Submission deleted successfully' });
+    } catch (error) {
+        res.status(500).json({ message: 'Error deleting submission', error });
+    }
+});
+
 router.get('/', homeController);
 
 router.post('/luker/:day', (req, res) => {

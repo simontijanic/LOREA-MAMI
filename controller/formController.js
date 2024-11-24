@@ -62,6 +62,13 @@
                 res.status(500).send("Server error");
             }
         }
+        async deleteSubmission(id) {
+            try {
+                await formModel.findByIdAndDelete(id);
+            } catch (error) {
+                throw new Error('Error deleting submission');
+            }
+        }
     }
 
     module.exports = Form; 

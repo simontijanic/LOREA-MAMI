@@ -27,6 +27,10 @@
         <div class="luke-data">
             <h2>Submissions for Luke <%= number %></h2>
             <% if (submissions.length > 0) { %>
+                <div id="winner-section">
+                    <h3>Winner: <span id="winner"></span></h3>
+                    <button id="randomize-winner">Pick a Winner</button>
+                </div>
                 <table>
                     <thead>
                         <tr>
@@ -36,9 +40,10 @@
                     </thead>
                     <tbody>
                         <% submissions.forEach(submission => { %>
-                            <tr>
+                            <tr data-id="<%= submission._id %>">
                                 <td><%= submission.epost %></td>
                                 <td><%= submission.svar %></td>
+                                <td class="delete-icon"></td>
                             </tr>
                         <% }); %>
                     </tbody>
