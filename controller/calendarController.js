@@ -12,7 +12,7 @@ const serveCalendarDay = (req, res) => {
     const currentDate = new Date();
 
     if (day <= currentDate.getDate()) {
-        const filePath = path.resolve(__dirname, '..', 'restricted', 'luker', String(day), 'index.html');
+        const filePath = path.resolve(__dirname, '..', 'restricted', 'luker', String(day), 'Index.html');
         res.sendFile(filePath);
     } else {
         res.status(403).json({ error: "Access denied. This day is not yet available." });

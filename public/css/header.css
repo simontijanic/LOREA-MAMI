@@ -18,7 +18,7 @@
 .header .container_header {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     flex-direction: row;
 
     width: 90%;
@@ -33,5 +33,5 @@
 .header .container_header h1 {
     font-size: 3rem;
 
-    color: var(--main-color);
+    color: white;
 }
