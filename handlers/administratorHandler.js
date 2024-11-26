@@ -6,8 +6,8 @@ async function loginAdmin(req, res) {
     const name = req.body.name;
     const password = req.body.password;
 
-    console.log('Received body:', req.body);
-    console.log('Attempting login with', name, password);
+  //  console.log('Received body:', req.body);
+    //console.log('Attempting login with', name, password);
 
     try {
         const admin = await administratorModel.findOne({ name }); // Find the admin by name
