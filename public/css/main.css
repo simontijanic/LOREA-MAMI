@@ -87,10 +87,18 @@
 
 .opened {
     transition: all 0.7s;
-    border: solid 0.25rem rgb(0, 0, 0);
+
+    background-image: url('/gfx/opened_luke.png');
+    background-size:cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;    
+
 }
 .opened:hover {
     background-color: rgba(0, 0, 0, 0);
+    
 }
 .can_Open {
     transition: all 0.5s;
@@ -148,6 +156,7 @@
 @media (max-width: 768px) {
     .opened {
         border: none;
+        background-image: none;
     }
 
     .can_Open {
